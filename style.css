@@ -31,6 +31,12 @@ body {
   text-align: center;
 }
 
-.hidden {
-  font-size: 0px;
+.game-board img {
+  width: 70%;
+  object-position: center;
+  object-fit: contain;
+}
+
+.hidden img {
+  opacity: 0;
 }

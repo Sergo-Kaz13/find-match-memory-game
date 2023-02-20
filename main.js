@@ -1,4 +1,13 @@
-const items = ["A", "B", "C", "D", "E", "F", "G", "J"];
+const items = [
+  "./images/22221cat_98748.png",
+  "./images/22251rat_98787.png",
+  "./images/animal_elephant_2739.png",
+  "./images/pet_aquarium_fishbowl_fish_icon_124628.png",
+  "./images/pet_rat_mouse_11098.png",
+  "./images/pet-animal-pets-fish-gold_108547.png",
+  "./images/pet-animal-pets-paw-dog-cat-paws_108559.png",
+  "/images/russel_dog_animal_15954.png",
+];
 const usedCardIndices = [];
 let firstValue = null;
 let activeCard = null;
@@ -17,7 +26,7 @@ for (let i = 0; i < items.length; i++) {
     } while (usedCardIndices.includes(randomNum));
 
     usedCardIndices.push(randomNum);
-    gameCards[randomNum].innerText = items[i];
+    gameCards[randomNum].innerHTML = `<img src="${items[i]}" alt="" />`;
   }
 }
 
@@ -29,17 +38,17 @@ setTimeout(() => {
 
 function checkMatch(e) {
   if (!firstValue) {
-    firstValue = e.target.innerText;
+    firstValue = e.target.firstChild.src;
     activeCard = e.target;
     activeCard.classList.remove("hidden");
-  } else if (e.target.innerText === firstValue) {
+  } else if (e.target.firstChild.src === firstValue) {
     e.target.classList.remove("hidden");
     setTimeout(() => {
       firstValue = null;
-      activeCard.innerText = "";
+      activeCard.innerHTML = ``;
       activeCard.style = "background: yellow";
       activeCard = null;
-      e.target.innerText = "";
+      e.target.innerHTML = ``;
       e.target.style = "background: yellow";
     }, 2000);
   } else {
