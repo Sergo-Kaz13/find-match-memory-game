@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+._container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.game-block {
+}
+
+.game-board td {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #000;
+  text-align: center;
+}
+
+.hidden {
+  font-size: 0px;
+}
