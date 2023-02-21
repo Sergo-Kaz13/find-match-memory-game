@@ -37,24 +37,39 @@ setTimeout(() => {
 }, 3000);
 
 function checkMatch(e) {
+  if (e.target.tagName === "TABLE") return;
+
+  let el = e.target;
+  let elData;
+
+  if (el.tagName !== "TD") {
+    el = e.target.closest("td");
+  }
+
+  elData = el.firstChild.src;
+
   if (!firstValue) {
-    firstValue = e.target.firstChild.src;
-    activeCard = e.target;
+    firstValue = elData;
+    activeCard = el;
     activeCard.classList.remove("hidden");
-  } else if (e.target.firstChild.src === firstValue) {
-    e.target.classList.remove("hidden");
+  } else if (elData === firstValue) {
+    gameBoard.classList.add("disabel");
+    el.classList.remove("hidden");
     setTimeout(() => {
+      gameBoard.classList.remove("disabel");
       firstValue = null;
       activeCard.innerHTML = ``;
       activeCard.style = "background: yellow";
       activeCard = null;
-      e.target.innerHTML = ``;
-      e.target.style = "background: yellow";
+      el.innerHTML = ``;
+      el.style = "background: yellow";
     }, 2000);
   } else {
-    e.target.classList.remove("hidden");
+    gameBoard.classList.add("disabel");
+    el.classList.remove("hidden");
     setTimeout(() => {
-      e.target.classList.add("hidden");
+      gameBoard.classList.remove("disabel");
+      el.classList.add("hidden");
       activeCard.classList.add("hidden");
       activeCard = null;
       firstValue = null;

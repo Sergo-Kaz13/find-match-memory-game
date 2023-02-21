@@ -14,6 +14,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #3992c5;
 }
 
 ._container {
@@ -24,11 +25,37 @@ body {
 .game-block {
 }
 
+.game-board {
+  position: relative;
+  border-spacing: 20px;
+}
+
+.disabel::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .game-board td {
   width: 150px;
   height: 150px;
-  border: 1px solid #000;
+  overflow: hidden;
+  background: #0a4364;
   text-align: center;
+  transition: all 0.28s ease;
+}
+
+.game-board td:hover {
+  cursor: pointer;
+}
+
+.game-board td:not(.hidden) {
+  background: rgba(230, 52, 96, 0.5);
 }
 
 .game-board img {
