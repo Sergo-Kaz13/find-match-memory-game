@@ -8,10 +8,12 @@ const items = [
   "./images/pet-animal-pets-paw-dog-cat-paws_108559.png",
   "/images/russel_dog_animal_15954.png",
 ];
+let timer = 3;
 const usedCardIndices = [];
 let firstValue = null;
 let activeCard = null;
 
+const timerWindow = document.querySelector(".timer");
 const gameCards = document.querySelectorAll("td");
 const gameBoard = document.querySelector(".game-board");
 
@@ -29,6 +31,15 @@ for (let i = 0; i < items.length; i++) {
     gameCards[randomNum].innerHTML = `<img src="${items[i]}" alt="" />`;
   }
 }
+
+let timerCount = setInterval(() => {
+  timerWindow.innerHTML = `<span>${timer}</span>`;
+  timer--;
+}, 1000);
+
+setTimeout(() => {
+  clearInterval(timerCount);
+}, 4000);
 
 setTimeout(() => {
   gameCards.forEach((el) => {

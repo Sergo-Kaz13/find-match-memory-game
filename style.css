@@ -12,6 +12,7 @@ body {
   min-height: 100%;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: #3992c5;
@@ -20,6 +21,12 @@ body {
 ._container {
   max-width: 1120px;
   margin: 0 auto;
+}
+
+.timer {
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
 }
 
 .game-block {
