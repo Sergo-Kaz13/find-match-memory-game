@@ -29,7 +29,35 @@ body {
   color: #fff;
 }
 
+.moves {
+}
+
 .game-block {
+  position: relative;
+}
+
+.btn-start {
+  position: absolute;
+  left: 50%;
+  top: 250px;
+  width: 150px;
+  height: 100px;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  border: none;
+  background: #0ce63b;
+  color: #fff;
+  font-size: 32px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.28s ease-in;
+}
+
+.btn-start:hover {
+  cursor: pointer;
+  color: #0ce63b;
+  border: 4px solid #0ce63b;
+  background: #fff;
 }
 
 .game-board {
@@ -37,15 +65,8 @@ body {
   border-spacing: 20px;
 }
 
-.disabel::before {
-  content: "";
-  display: block;
-  position: absolute;
-  z-index: 100;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+.disabled {
+  pointer-events: none;
 }
 
 .game-board td {
@@ -73,4 +94,51 @@ body {
 
 .hidden img {
   opacity: 0;
+}
+
+.row {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+fieldset > label {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+}
+
+.tool-bar button:has(:checked) {
+  background: #10eb90;
+}
+
+.tool-bar button {
+  border: none;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #979494;
+}
+
+.tool-bar button:not(.tool-bar button:last-child) {
+  margin-right: 15px;
+}
+
+.tool-bar button:nth-child(2) {
+  margin-left: auto;
+}
+
+.tool-bar button > label {
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  width: 70px;
+  height: 35px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+  align-items: center;
 }
